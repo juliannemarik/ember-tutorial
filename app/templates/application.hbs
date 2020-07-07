@@ -7,18 +7,10 @@
                 </h1>
             </a>
         </div>
-        <ul>
-            {{#each
-                (array
-                    (hash title="Black Dog" band="Led Zeppelin" rating=3)
-                    (hash title="Yellow Ledbetter" band="Pearl Jam" rating=4)
-                    (hash title="The Pretender" band="Foo Fighters" rating=2)
-                ) as |song|
-            }}
-            <li class="leading-loose">
-                {{song.title}} by {{song.band}} <span class="floatright">{{song.rating}}</span>
-            </li>
-            {{/each}}
-        </ul>
+        <nav class="h-8 flex items-center mb-8" role="navigation">
+            <LinkTo class="hover:text-gray-500" @route="bands">Bands</LinkTo>
+            <LinkTo class="hover:text-gray-500 ml-4" @route="songs">Songs</LinkTo>
+        </nav>
+        {{outlet}}
     </div>
 </div>
