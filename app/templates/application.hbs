@@ -1,3 +1,24 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div class="bg-blue-800 text-gray-100 p-8 h-screen">
+    <div class="mx-auto mb-4">
+        <div class="h-12 flex items-center mb-4 border-b-2">
+            <a href="#">
+                <h1 class="font-bold text-2xl">
+                    Rock & Roll <span class="font-normal">on Octane</span>
+                </h1>
+            </a>
+        </div>
+        <ul>
+            {{#each
+                (array
+                    (hash title="Black Dog" band="Led Zeppelin" rating=3)
+                    (hash title="Yellow Ledbetter" band="Pearl Jam" rating=4)
+                    (hash title="The Pretender" band="Foo Fighters" rating=2)
+                ) as |song|
+            }}
+            <li class="leading-loose">
+                {{song.title}} by {{song.band}} <span class="floatright">{{song.rating}}</span>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
