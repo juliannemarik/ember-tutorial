@@ -6,7 +6,7 @@
                 <span class="float-right">
                     <StarRating 
                         @rating={{song.rating}}
-                        @onUpdate={{set song.rating _}}
+                        @onUpdate={{fn this.updateRating song}}
                     />
                 </span>
             </li>

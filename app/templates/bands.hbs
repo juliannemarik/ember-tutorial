@@ -2,7 +2,7 @@
     <ul class="pl-2 pr-8">
         {{#each @model as |band|}}
             <li class="mb-2">
-                <LinkTo @route="bands.band.songs" @model={{band.slug}}>
+                <LinkTo @route="bands.band.songs" @model={{band.id}}>
                     {{band.name}}
                 </LinkTo>
             </li>
