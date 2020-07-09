@@ -1,6 +1,6 @@
-{{#if @model.length}}
+{{#if @model.songs.length}}
     <ul>
-        {{#each @model as |song|}}
+        {{#each @model.songs as |song|}}
             <li class="mb-2">
                 {{song.title}}
                 <span class="float-right">
@@ -16,4 +16,39 @@
     <p class="text-center">
         The band has no songs yet.
     </p>
+{{/if}}
+{{#if this.showAddSong}}
+    <div class="flex justify-center mt-2">
+        <button
+            type="button"
+            class="px-4 py-2 rounded bg-purple-600 shadow-md hover:shadowlg hover:text-white hover:bg-purple-500 focus:outline-none"
+            {{on "click" (set this.showAddSong false)}}
+        >
+            Add song
+        </button>
+    </div>
+{{else}}
+    <div class="mt-6 flex">
+        <input
+            type="text"
+            class="text-gray-800 bg-white rounded-md py-2 px-4"
+            placeholder="Title"
+            value={{this.title}}
+            {{on "input" (set this.title (get _ "target.value"))}}
+        >
+        <button
+            type="button"
+            class="ml-4 px-4 py-2 rounded bg-purple-600 shadow-md hover:shadow-lg hover:text-white"
+            {{on "click" this.saveSong}}
+        >
+            Save
+        </button>
+        <button
+            type="button"
+            class="ml-2 px-4 p-2 rounded bg-white border border-bgpurple-600 shadow-md text-purple-600 hover:shadow-lg"
+            {{on "click" this.cancel}}
+        >
+            Cancel
+        </button>
+    </div>
 {{/if}}
